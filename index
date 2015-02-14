@@ -1,0 +1,3 @@
+less less.lua /.sys/less.lua
+init init.lua /startup
+aliases aliases.dat /.sys/aliases
