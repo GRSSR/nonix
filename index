@@ -1,3 +1,23 @@
-less less.lua /.sys/less.lua
-init init.lua /startup
-aliases aliases.dat /.sys/aliases
+{
+	dependancies = {
+		"yggdrasil",
+	},
+	files = {
+		{
+			install_location = "/.sys/nonix",
+			repo_location = "nonix.lua"
+		},
+		{
+			install_location = "startup",
+			repo_location = "init.lua"
+		},
+		{
+			install_location = "/bin/less",
+			repo_location = "less.lua"
+		}
+	},
+	aliases = {
+		less = "/bin/less"
+	},
+	version = "1.0.0"
+}

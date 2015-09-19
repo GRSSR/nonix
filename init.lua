@@ -1,11 +1,15 @@
-os.loadAPI("/api/redString")
-os.loadAPI("/api/sovietProtocol")
+os.loadAPI("/.sys/nonix")
 
-local alias_file = io.open('/.sys/aliases', 'r')
-if alias_file then
-	for line in alias_file:lines() do
-		alias = redString.split(line)
-		shell.run('alias', unpack(alias))
+NONIX = true
+
+local system_store = yggdrasil.namespace_open('nonix')
+
+if yggdrasil.namespace_exists('yum') then
+	local yum_ns = yggdrasil.namespace_open('yum')
+	for _, package in pairs(yum_ns.installed_packages) do
+		for alias, file in pairs(package.aliases) do 
+			shell.setAlias(file, alias)
+		end
 	end
 end
 
